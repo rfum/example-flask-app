@@ -17,8 +17,8 @@ Description="Code change controller service for example-flask-app"
 After=network.target
 
 [Service]
-User=vagrant
-Group=vagrant
+User=root
+Group=root
 WorkingDirectory=/home/vagrant/myproj/example-flask-app
 ExecStart=/bin/bash git-controller.sh
 #Install at boot
