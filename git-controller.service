@@ -1,0 +1,26 @@
+#################################!!!README!!!#######################################
+
+#A simple bash script to pull remote branch changes
+#This way any change in the code base will be synchronized with 
+#the VM. This script is controlled with systemd git-controller svc.
+#This is going to be initialized when "vagrant up"
+#You can simply;
+#Stop =>  "sudo systemctl stop git-controller"
+#Start =>  start "sudo systemctl start git-controlle"
+#Restart =>  "sudo systemctl restart git-controlle"
+#Disable => "sudo systemctl disable git-controlle"
+
+#################################!!!README!!!#######################################
+
+[Unit]
+Description="Code change controller service for example-flask-app"
+After=network.target
+
+[Service]
+User=vagrant
+Group=vagrant
+WorkingDirectory=/home/vagrant/myproj/example-flask-app
+ExecStart=bash git-controller.sh
+#Install at boot
+[Install]
+WantedBy=multi-user.target

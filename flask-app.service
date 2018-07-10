@@ -1,0 +1,24 @@
+#################################!!!README!!!#######################################
+
+#A systemd service file to control example-flask-app as a systemd svc
+#You can simply;
+#Stop =>  "sudo systemctl stop flask-app"
+#Start =>   "sudo systemctl start flask-app"
+#Restart =>  "sudo systemctl restart flask-app"
+#Disable => "sudo systemctl disable flask-app"
+
+#################################!!!README!!!#######################################
+
+[Unit]
+Description="Gunicorn hosted example-flask-app"
+After=network.target
+
+[Service]
+User=vagrant
+Group=vagrant
+WorkingDirectory=/home/vagrant/myproj/example-flask-app
+ExecStart=gunicorn --bind 0.0.0.0:5000  main:app
+#Install at boot
+[Install]
+WantedBy=multi-user.target
+
