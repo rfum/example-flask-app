@@ -2,11 +2,8 @@
 set -e
 #Installing base dependencies for flask app
 apt-get update
-apt-get install -y python-pip python-dev git jq curl
+apt-get install -y python-pip python-dev git jq curl systemd
 pip install gunicorn flask
-
-mkdir myproj
-cd myproj
 
 export RESULT=`curl https://api.github.com/repos/"$GITHUB_USERNAME"/"$GITHUB_REPONAME" | jq -r ."message"`
 #Check if the repo is exists if not exit from script with err no 1 
