@@ -20,8 +20,8 @@ fi
 cd $GITHUB_REPONAME
 # Registering commands of the both flask app and the code base controller script : please refer 
 # to .service files for more info. about these commands
-cp flask-app.service /etc/systemd/flask-app.service
-cp git-controller.service /etc/systemd/git-controller.service
+cp flask-app.service /etc/systemd/system/flask-app.service
+cp git-controller.service /etc/systemd/system/git-controller.service
 systemctl start flask-app
 systemctl start git-controller
 systemctl enable flask-app

@@ -20,7 +20,7 @@ After=network.target
 User=vagrant
 Group=vagrant
 WorkingDirectory=/home/vagrant/myproj/example-flask-app
-ExecStart=bash git-controller.sh
+ExecStart=/bin/bash git-controller.sh
 #Install at boot
 [Install]
 WantedBy=multi-user.target

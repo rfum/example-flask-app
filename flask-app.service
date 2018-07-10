@@ -17,7 +17,7 @@ After=network.target
 User=vagrant
 Group=vagrant
 WorkingDirectory=/home/vagrant/myproj/example-flask-app
-ExecStart=gunicorn --bind 0.0.0.0:5000  main:app
+ExecStart=/usr/local/bin/gunicorn --bind 0.0.0.0:5000  main:app
 #Install at boot
 [Install]
 WantedBy=multi-user.target
