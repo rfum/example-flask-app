@@ -1,10 +1,10 @@
 #################################!!!README!!!#######################################
 
-#A simple bash script to pull remote branch changes
-#This way any change in the code base will be synchronized with 
+#A simple bash script to pull remote branch changes 
+#This way any change in the codebase will be synchronized with 
 #the VM. This script is controlled with systemd git-controller svc.
-#This is going to be initialized when "vagrant up"
-#You can simply;
+#This is going to be initialized when you "vagrant up"
+#You can simply make it ;
 #Stop =>  "sudo systemctl stop git-controller"
 #Start =>  start "sudo systemctl start git-controlle"
 #Restart =>  "sudo systemctl restart git-controlle"
@@ -14,6 +14,7 @@
 
 [Unit]
 Description="Code change controller service for example-flask-app"
+#Wait until whole network up and run
 After=network.target
 
 [Service]
