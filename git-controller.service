@@ -19,7 +19,7 @@ After=network.target
 [Service]
 User=root
 Group=root
-WorkingDirectory=/home/vagrant/myproj/example-flask-app
+WorkingDirectory=/home/vagrant/example-flask-app
 ExecStart=/bin/bash git-controller.sh
 #Install at boot
 [Install]
