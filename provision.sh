@@ -6,7 +6,7 @@ apt-get install -y python-pip python-dev git jq curl systemd
 pip install gunicorn flask
 
 export RESULT=`curl https://api.github.com/repos/"$GITHUB_USERNAME"/"$GITHUB_REPONAME" | jq -r ."message"`
-#Check if the repo is exists if not exit from script with err no 1 
+#Check if the repo is exists. if not, just exit from script with err no 1.
 if [ "$RESULT" != "Not Found" ];
 then
    git clone https://github.com/"$GITHUB_USERNAME"/"$GITHUB_REPONAME"

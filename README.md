@@ -1,50 +1,49 @@
 
 #  Example Flask Application
 
+A simple web-application built with Flask, backed by Gunicorn and systemd. It only serves to a purpose: Saying Hello!
+
+###  Dependencies:
   
 
-A simple web-application built with Flask backed by Gunicorn(systemd). It only has one purpose: Saying Hello!.
+- VirtualBox's latest version
 
-  
+- Vagrant's latest version
 
-It's also simple to make this application up and run on your laptop...
+- A loopback adapter(localhost)
 
-Just clone it into your local and ```vagrant up``` ! That's all.
+- Curl HTTP client(Optional)
 
-  
+- Bash(Optional)
 
-From now on, if your VM is up and run then just curl to it to see what happens ;
+Starting the application is simple. Just execute these two commands:
 
-```$ curl http://127.0.0.1:8080```
+-  `$ git clone https://github.com/rfum/example-flask-app`
 
-  
+-  `$ vagrant up`
+ 
 
-Let's say you've changed a little bit on the application. This smart vagrant box immediataly finds out this. To see this behaviour try ;
+To make sure that the VM is configured as it has to be,make an HTTP request with curl :
 
-  
+-  ```$ curl http://127.0.0.1:8080```  
 
-$ ```while [ 1 ] ; do curl http://127.0.0.1:8080; echo "\n"; sleep 1; done ```
+If you change the content of hello function in hello.py, then the VM automatically synchronizes itself with that change in a few seconds. If you want to see that change in the application, then execute the following :
 
-  
+-  ```$ while [ 1 ] ; do curl http://127.0.0.1:8080; echo "\n"; sleep 1; done``` 
 
-If you want to change the code base to a different github repository (ofc. a public one ) just chekcout the Vagrantfile. I've added two env. variables to determine code base.(```GITHUB_USERNAME and GITHUB_REPONAME```). With editing these two you can change the codebase as you wish.
+This will immediately stdout the incoming responses. After seeing the change you can just press `CTRL+C` key combinations.  
 
-  
+If you are planning to change the code base to a different GitHub repository, ( Be sure it's public )
+then just check the Vagrantfile. I've added two environment variables to determine codebase (```GITHUB_USERNAME``` and ```GITHUB_REPONAME```). With editing these two environment variables, you can change the codebase as your demand.
 
-If you want more details on, how everything works. Just peek into the source code. The comments must have been laying around.
+If you want more details on "how everything works?". Just peek into the source code. You'll find related comment lines in each file.
 
-  
+You may wonder, "why not crontab and systemd?". Because with systemd , we have lesser time interval than 1 minute(refer: "https://crontab.guru/#\*\_\*\_\*\_\*\_\*" ).
 
-You may wonder, "why not crontab?". Because with systemd services, I have lesser time interval than 1 minute.
+And of course you may want to see "how this project evolved?".
 
-  
+From terminal execute the below :
 
-Aand of course you can checkout how this thing evolved.
+-  ```git show ```
 
-  
-
-The nasty way to do is :
-
-```git show ```
-
-More cleaner way is GitHub UI.
+But this one is not much eye friendly.More cleaner way to do is, using GitHub UI or a git client such as GitKraken and SourceTree.
